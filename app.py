@@ -27,5 +27,29 @@ def generate_reponse(question,api_key,llm,temperature,max_tokens):
     output_parser = StrOutputParser()
     chain = prompt|llm|output_parser
     answer = chain.invoke({"question": question})
+    temperature=temperature
+    max_tokens=max_tokens
+    return answer
 
+# Let us build the web app now
+st.title("ConversoAI - Chat with LLMs")
+api_key = st.sidebar.text_input("Enter your Groq API Key", type="password")
 
+# drop down to select various models
+llm = st.sidebar.selectbox(
+    "Select LLM Model",
+    ("groq/compound","groq/compound-mini")
+)
+temperature = st.sidebar.slider("Select Temperature", 0.0, 1.0, 0.7)
+max_tokens = st.sidebar.slider("Select Max Tokens", 50, 300, 150)
+
+st.write("## Ask a question to the LLM")
+user_input = st.text_input("You:")
+
+if user_input:
+    response = generate_reponse(user_input,api_key,llm,temperature,max_tokens)
+    st.write("### Response from LLM:")
+    st.write(response)
+else:
+    st.write("Please enter a question to get a response.")
+    
