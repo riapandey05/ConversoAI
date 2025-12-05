@@ -28,6 +28,13 @@ This project is ideal for learning how to connect LLMs with UI frameworks and un
 | Environment Handling | python-dotenv |
 
 ---
+📦 Folder Structure
+ConversoAI/
+│── app.py
+│── requirements.txt
+│── README.md
+│── .env (optional)
+
 
 ## ✨ Features
 
@@ -40,5 +47,12 @@ This project is ideal for learning how to connect LLMs with UI frameworks and un
 
 ---
 
-## 📸 UI Preview
+⚠️ Notes
+
+Groq API key must be valid for responses to work.
+
+Some models may respond slower or require more tokens.
+
+The temperature slider directly impacts creativity vs accuracy.
+
 
