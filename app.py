@@ -13,6 +13,7 @@ load_dotenv()
 # os.environ["LANGCHAIN_PROJECT"] = "ConversoAI"
 
 
+
 # prompt template
 prompt = ChatPromptTemplate.from_messages(
     [
@@ -22,7 +23,10 @@ prompt = ChatPromptTemplate.from_messages(
 )
 
 def generate_reponse(question,api_key,llm,temperature,max_tokens):
-    ChatGroq.groq_api_key=api_key
+    if not api_key:
+        st.error("Please enter a valid Groq API Key in the sidebar.")
+        return ""
+    api_key=api_key
     llm = ChatGroq(model=llm)
     output_parser = StrOutputParser()
     chain = prompt|llm|output_parser
