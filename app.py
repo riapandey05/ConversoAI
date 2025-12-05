@@ -8,9 +8,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # langchain tracking
-os.environ["LANGCHAIN_TRACKING_V2"] = os.getenv("LANGCHAIN_API_KEY")
-os.environ["LANGCHAIN_TRACKING_V2"]=True
-os.environ["LANGCHAIN_PROJECT"] = "ConversoAI"
+# os.environ["LANGCHAIN_TRACKING_V2"] = os.getenv("LANGCHAIN_API_KEY")
+# os.environ["LANGCHAIN_TRACKING_V2"]="true"
+# os.environ["LANGCHAIN_PROJECT"] = "ConversoAI"
 
 
 # prompt template
@@ -52,4 +52,3 @@ if user_input:
     st.write(response)
 else:
     st.write("Please enter a question to get a response.")
-    
